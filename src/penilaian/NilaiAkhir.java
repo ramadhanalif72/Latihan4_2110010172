@@ -2,37 +2,44 @@
 package penilaian;
 
 
-public class NilaiAkhir {
-    private int tugas;
+public class NilaiAkhir extends Mahasiswa {
     private int uts;
     private int uas;
+    private int tugas;
 
-    public NilaiAkhir(String nama, String nim, int tugas, int uts, int uas) {
-        super(Nama, Npm);
-        this.tugas = tugas;
+    public NilaiAkhir(String nama, String npm, int uts, int uas, int tugas) {
+        super(nama, npm);
         this.uts = uts;
+        this.uas = uas;
+        this.tugas = tugas;
+    }
+
+    public int getUts() {
+        return uts;
+    }
+
+    public void setUts(int uts) {
+        this.uts = uts;
+    }
+
+    public int getUas() {
+        return uas;
+    }
+
+    public void setUas(int uas) {
         this.uas = uas;
     }
 
+    public int getTugas() {
+        return tugas;
+    }
+
+    public void setTugas(int tugas) {
+        this.tugas = tugas;
+    }
+
     public double hitungNilaiAkhir() {
-        double nilaiAkhir = 0.3 * tugas + 0.3 * uts + 0.4 * uas;
+        double nilaiAkhir = 0.3 * uts + 0.3 * uas + 0.4 * tugas;
         return nilaiAkhir;
-    }
-
-    @Override
-    public void info() {
-        super.info();
-        System.out.println("Nilai Tugas: " + tugas);
-        System.out.println("Nilai UTS: " + uts);
-        System.out.println("Nilai UAS: " + uas);
-        System.out.println("Nilai Akhir: " + hitungNilaiAkhir());
-    }
-}
-
-// Contoh penggunaan class NilaiAkhir
-public class Mahasiswa {
-    public static void main(String[] args) {
-        NilaiAkhir mahasiswa1 = new NilaiAkhir("Alif Ramadhan", "2110010172", 80, 75, 85);
-        mahasiswa1.info();
     }
 }
